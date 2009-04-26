@@ -38,18 +38,7 @@ module AnsiColor
     :white   => 47
   }
 
-  class << self
-    FOREGROUND_COLORS.each do |name, code|
-      define_method(name) { code }
-    end
-
-    BACKGROUND_COLORS.each do |name, code|
-      define_method("#{name}_background") { code }
-    end
-
-    EFFECTS.each do |name, code|
-      define_method(name) { code }
-    end
+  module StdOut
 
     def print(*args)
       if args.last.kind_of? Hash
@@ -70,6 +59,24 @@ module AnsiColor
          super(*args)
       end
     end
+
+  end
+
+  class << self
+    FOREGROUND_COLORS.each do |name, code|
+      define_method(name) { code }
+    end
+
+    BACKGROUND_COLORS.each do |name, code|
+      define_method("#{name}_background") { code }
+    end
+
+    EFFECTS.each do |name, code|
+      define_method(name) { code }
+    end
+
+    include StdOut 
+
   end
 end
 

@@ -32,6 +32,15 @@ Add some simple methods that allow you to colourise and style your Strings with 
 	AnsiColor.blink
 	# => 5
 
+## Having AnsiColor options in your puts
+
+	require 'rubygems'
+	require 'ansi_color'
+	
+        include AnsiColor::StdOut	
+        puts "hello", :color => :blue
+        print "indeed", :effect => :bold
+
 ## Adding colour methods to String
 
 ### This doesn't work properly!
