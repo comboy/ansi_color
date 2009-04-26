@@ -7,6 +7,16 @@ describe AnsiColor do
       string.should == 'james'
     end
 
+    it "print non string objects with no options" do
+      string = catch_stdout { AnsiColor.print(234) } 
+      string.should == '234'
+    end
+
+    it "rend and bold on non string object" do
+      string = catch_stdout { AnsiColor.print(42, :color => :red, :effects => :bold) }
+      string.should == "#{E}31;1m42#{E}0m"
+    end
+
     it "red and bold" do
       string = catch_stdout { AnsiColor.print('james', :color => :red, :effects => :bold) }
       string.should == "#{E}31;1mjames#{E}0m"
@@ -23,9 +33,14 @@ describe AnsiColor do
   end
 
   describe "puts" do
-    it "returns the original string with no options" do
+    it "print the original string with no options" do
       string = catch_stdout { AnsiColor.puts('james') }
       string.should == "james\n"
+    end
+
+    it "print some number with no options" do
+      string = catch_stdout { AnsiColor.puts(243) }
+      string.should == "243\n"
     end
 
     it "red and bold" do

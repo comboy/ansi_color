@@ -56,7 +56,7 @@ module AnsiColor
          super(string)
       else
          open_tag = Helpers::build_open_tag(options)
-         super(open_tag + string + Helpers::reset)
+         super(open_tag + string.to_s + Helpers::reset)
       end
     end
 
@@ -65,7 +65,7 @@ module AnsiColor
          super(string)
       else
          open_tag = Helpers::build_open_tag(options)
-         super(open_tag + string + Helpers::reset)
+         super(open_tag + string.to_s + Helpers::reset)
       end
     end
   end
