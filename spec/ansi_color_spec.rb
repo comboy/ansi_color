@@ -12,9 +12,19 @@ describe AnsiColor do
       string.should == '234'
     end
 
-    it "rend and bold on non string object" do
+    it "red and bold on non string object" do
       string = catch_stdout { AnsiColor.print(42, :color => :red, :effects => :bold) }
       string.should == "#{E}31;1m42#{E}0m"
+    end
+
+    it "print many args with no options" do
+      str = catch_stdout { AnsiColor.print(1,'w0t',2) }
+      str.should == "1w0t2"
+    end
+
+    it "print many args in red and bold" do
+      str = catch_stdout { AnsiColor.print(1,'w0t',2, :color => :red, :effects => :bold) }
+      str.should == "#{E}31;1m1w0t2#{E}0m"
     end
 
     it "red and bold" do

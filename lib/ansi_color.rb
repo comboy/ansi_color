@@ -51,21 +51,23 @@ module AnsiColor
       define_method(name) { code }
     end
 
-    def print(string, options={})
-      if options.empty?
-         super(string)
-      else
+    def print(*args)
+      if args.last.kind_of? Hash
+         options = args.pop
          open_tag = Helpers::build_open_tag(options)
-         super(open_tag + string.to_s + Helpers::reset)
+         super(open_tag + args.map{|a| a.to_s}.join + Helpers::reset)
+      else
+         super(*args)
       end
     end
 
-    def puts(string, options={})
-      if options.empty?
-         super(string)
-      else
+    def puts(*args)
+      if args.last.kind_of? Hash
+         options = args.pop
          open_tag = Helpers::build_open_tag(options)
-         super(open_tag + string.to_s + Helpers::reset)
+         super(open_tag + args.map{|a| a.to_s}.join("\n") + Helpers::reset)
+      else
+         super(*args)
       end
     end
   end
