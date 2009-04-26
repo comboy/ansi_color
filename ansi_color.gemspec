@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ansi_color}
-  s.version = "0.3.2"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["James Conroy-Finn"]
@@ -10,24 +10,12 @@ Gem::Specification.new do |s|
   s.email = %q{james@logi.cl}
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.rdoc"
+    "README.md"
   ]
+
   s.files = [
-    "LICENSE",
-    "README.rdoc",
-    "Rakefile",
-    "VERSION.yml",
-    "lib/ansi_color.rb",
-    "lib/ansi_color/effects.rb",
-    "lib/ansi_color/helpers.rb",
-    "lib/ansi_color/rainbow.rb",
-    "spec/ansi_color/effects_spec.rb",
-    "spec/ansi_color/helpers_spec.rb",
-    "spec/ansi_color/rainbow_spec.rb",
-    "spec/ansi_color_spec.rb",
-    "spec/spec.opts",
-    "spec/spec_helper.rb"
-  ]
+  "spec", "spec/ansi_color_spec.rb", "spec/ansi_color", "spec/ansi_color/effects_spec.rb", "spec/ansi_color/helpers_spec.rb", "spec/ansi_color/rainbow_spec.rb", "spec/ansi_color/string_spec.rb", "spec/spec_helper.rb", "spec/spec.opts", "VERSION.yml", "LICENSE", "lib", "lib/ansi_color", "lib/ansi_color/effects.rb", "lib/ansi_color/rainbow.rb", "lib/ansi_color/string.rb", "lib/ansi_color/helpers.rb", "lib/ansi_color.rb", "Rakefile", "ansi_color.gemspec", "README.md"]
+
   s.has_rdoc = true
   s.homepage = %q{http://github.com/jcf/ansi_color}
   s.rdoc_options = ["--charset=UTF-8"]
