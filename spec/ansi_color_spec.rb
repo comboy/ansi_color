@@ -2,39 +2,43 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe AnsiColor do
   describe "print" do
-    it "returns the original string with no options" do
-      string = AnsiColor.print('james')
+    it "print the original string with no options" do
+      string = catch_stdout { AnsiColor.print('james') } 
       string.should == 'james'
     end
 
     it "red and bold" do
-      string = AnsiColor.print('james', :color => :red, :effects => :bold)
+      string = catch_stdout { AnsiColor.print('james', :color => :red, :effects => :bold) }
       string.should == "#{E}31;1mjames#{E}0m"
     end
 
     it "blue on white blinking" do
-      tag = AnsiColor.print('james', :color => :blue,
-        :background => :white,
-        :effects => :blink)
+      tag = catch_stdout { 
+         AnsiColor.print('james', :color => :blue,
+            :background => :white,
+            :effects => :blink) 
+         }
       tag.should == "#{E}34;47;5mjames#{E}0m"
     end
   end
 
   describe "puts" do
     it "returns the original string with no options" do
-      string = AnsiColor.puts('james')
+      string = catch_stdout { AnsiColor.puts('james') }
       string.should == "james\n"
     end
 
     it "red and bold" do
-      string = AnsiColor.puts('james', :color => :red, :effects => :bold)
+      string = catch_stdout { AnsiColor.puts('james', :color => :red, :effects => :bold) }
       string.should == "#{E}31;1mjames#{E}0m\n"
     end
 
     it "blue on white blinking" do
-      string = AnsiColor.puts('james', :color => :blue,
-        :background => :white,
-        :effects => :blink)
+      string = catch_stdout { 
+         AnsiColor.puts('james', :color => :blue,
+            :background => :white,
+            :effects => :blink)
+         }
       string.should == "#{E}34;47;5mjames#{E}0m\n"
     end
   end

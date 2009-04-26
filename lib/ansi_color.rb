@@ -52,15 +52,21 @@ module AnsiColor
     end
 
     def print(string, options={})
-      return string if options.empty?
-      open_tag = Helpers::build_open_tag(options)
-      open_tag + string + Helpers::reset
+      if options.empty?
+         super(string)
+      else
+         open_tag = Helpers::build_open_tag(options)
+         super(open_tag + string + Helpers::reset)
+      end
     end
 
     def puts(string, options={})
-      return "#{string}\n" if options.empty?
-      open_tag = Helpers::build_open_tag(options)
-      open_tag + string + Helpers::reset + "\n"
+      if options.empty?
+         super(string)
+      else
+         open_tag = Helpers::build_open_tag(options)
+         super(open_tag + string + Helpers::reset)
+      end
     end
   end
 end

@@ -8,3 +8,12 @@ include AnsiColor
 Spec::Runner.configure do |config|
   
 end
+
+def catch_stdout
+   stdout = $>
+   fake = StringIO.new ''
+   $> = fake
+   yield
+   $> = stdout
+   fake.string
+end
