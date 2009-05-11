@@ -41,8 +41,9 @@ module AnsiColor
   module StdOut
 
     def print(*args)
-      if args.last.kind_of? Hash
+      if [Hash,Symbol].include? args.last.class
          options = args.pop
+	 options = {:color => options} if options.kind_of? Symbol 
          open_tag = Helpers::build_open_tag(options)
          super(open_tag + args.map{|a| a.to_s}.join + Helpers::reset)
       else
@@ -51,8 +52,9 @@ module AnsiColor
     end
 
     def puts(*args)
-      if args.last.kind_of? Hash
+      if [Hash,Symbol].include? args.last.class
          options = args.pop
+	 options = {:color => options} if options.kind_of? Symbol 
          open_tag = Helpers::build_open_tag(options)
          super(open_tag + args.map{|a| a.to_s}.join("\n") + Helpers::reset)
       else

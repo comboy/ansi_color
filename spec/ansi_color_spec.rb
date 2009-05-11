@@ -40,6 +40,12 @@ describe AnsiColor do
          }
       tag.should == "#{E}34;47;5mjames#{E}0m"
     end
+
+    it "if symbol is a last parameter treat it as color" do
+    	s1 = catch_stdout { AnsiColor.print('comboy', :color => :red) }
+    	s2 = catch_stdout { AnsiColor.print('comboy', :red) }
+	s1.should == s2
+    end
   end
 
   describe "puts" do
@@ -66,6 +72,13 @@ describe AnsiColor do
          }
       string.should == "#{E}34;47;5mjames#{E}0m\n"
     end
+
+    it "if symbol is a last parameter treat it as color" do
+    	s1 = catch_stdout { AnsiColor.puts('comboy', :color => :red) }
+    	s2 = catch_stdout { AnsiColor.puts('comboy', :red) }
+	s1.should == s2
+    end
+
   end
   
   describe "color codes from names" do

@@ -38,8 +38,12 @@ Add some simple methods that allow you to colourise and style your Strings with 
 	require 'ansi_color'
 	
         include AnsiColor::StdOut	
+
         puts "hello", :color => :blue
         print "indeed", :effect => :bold
+
+	# or even shorter version
+	puts "ruby is so coll", :red 
 
 ## Adding colour methods to String
 
