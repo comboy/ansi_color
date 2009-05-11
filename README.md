@@ -41,9 +41,7 @@ Add some simple methods that allow you to colourise and style your Strings with 
 
         puts "hello", :color => :blue
         print "indeed", :effect => :bold
-
-	# or even shorter version
-	puts "ruby is so coll", :red 
+	puts "ruby is so cool", :red 
 
 ## Adding colour methods to String
 
