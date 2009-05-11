@@ -13,6 +13,7 @@ module AnsiColor
   EFFECTS = {
     :normal     => 0,
     :bold       => 1,
+    :italics    => 3,
     :underscore => 4,
     :blink      => 5,
     :inverse    => 7
@@ -25,7 +26,9 @@ module AnsiColor
     :blue    => 34,
     :magenta => 35,
     :cyan    => 36,
-    :white   => 37
+    :white   => 37,
+    :default => 39
+
   }
   BACKGROUND_COLORS = {
     :black   => 40,
@@ -35,7 +38,8 @@ module AnsiColor
     :blue    => 44,
     :magenta => 45,
     :cyan    => 46,
-    :white   => 47
+    :white   => 47,
+    :white   => 49
   }
 
   module StdOut
